@@ -1,0 +1,24 @@
+body, .carry.content {
+    background-color: #1BAFE0;
+}
+
+.carry-wrapper {
+    width: 920px;
+    margin: 0 auto;
+}
+.carry-row {
+    width: 100%;
+    float: left;
+}
+
+.carry.content .content-step {
+    padding: 10px;
+}
+
+.carry.content .content-step1 {
+    color: #ffffff;
+}
+
+.button-step1 {
+    background-color: #1BAFE0;
+}
