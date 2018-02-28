@@ -1,0 +1,33 @@
+.carry-row {
+    padding-top: 7rem;
+    font-size: 17px;
+    padding-left: 15rem;
+    padding-right: 15rem;
+}
+.carry-row > .carry-container > label {
+    color: #ffff;
+    display: block;
+    margin: 2em 0 0 0;
+}
+.carry-row > .carry-container > input[type=button] {
+    background-color: #acacac;
+    color: #ffff
+}
+.carry-row > .carry-container > input[type=text]{
+    width: 100%;
+}
+.carry-radio-container{
+    padding-top: 2em;
+}
+.carry-row > .carry-radio-container > input[type=radio]{
+    display:block;
+    float: left;
+}.carry-row > .carry-radio-container > p {
+    color: #ffff;
+}
+.carry-row > input[type=button]{
+    background-color: blue;
+    border-color: blue;
+    color: #ffff;
+    float: right;
+}

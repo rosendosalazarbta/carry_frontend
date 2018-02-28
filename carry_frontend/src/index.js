@@ -14,7 +14,7 @@ import { HashRouter, Route, Switch } from 'react-router-dom';
 
 // ReactDOM.render(<GetMyRide />, document.getElementById('content'));
 // registerServiceWorker();
-
+import StepTwo from './Components/StepTwo';
 
 
 const auth = new Auth();
@@ -39,6 +39,12 @@ ReactDOM.render((
                 <Route path="/home"
                     render={(props) => {
                         return <App />
+                        
+                    }}
+                />
+                <Route path="/StepTwo"
+                    render={(props) => {
+                        return <StepTwo />
                         
                     }}
                 />
