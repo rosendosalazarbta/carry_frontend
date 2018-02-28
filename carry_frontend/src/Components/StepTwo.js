@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import '../Styles/stepTwo.css';
+import Input from './Commons/Input';
 
 class StepTwo extends Component {
     constructor(props) {
@@ -11,11 +12,20 @@ class StepTwo extends Component {
             <div className='carry-row'>
                 <div className='carry-container'>
                     <label>Me traslado desde:</label>
-                    <input type='text' placeholder='Dirección de inicio' />
+                    {/* <input type='text' placeholder='Dirección de inicio' /> */}
+                    <Input onChange={(event) => {
+                        this.setState({ valueInput: event.target.value });
+                    }} />
 
                     <label>Hasta llegar a:</label>
-                    <input type='text' placeholder='Dirección de destino' />
-                    <input type='button' value='Hora de llegada' />
+                    {/* <input type='text' placeholder='Dirección de destino' />
+                    <input type='button' value='Hora de llegada' /> */}
+                    <Input onChange={(event) => {
+                        this.setState({ valueInput: event.target.value });
+                    }} />
+                    <Input onChange={(event) => {
+                        this.setState({ valueInput: event.target.value });
+                    }} />
                 </div>
                 <div className='carry-radio-container'>
                     <input type='radio' name='horary' value='l-v' /><p>De Lunes a Viernes</p>

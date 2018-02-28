@@ -1,8 +1,14 @@
 import React, { Component } from 'react';
+import $ from 'jquery';
+/*
 import {
     FormControl
 } from 'react-bootstrap';
-
+*/
+window.jQuery = $;
+window.$ = $;
+global.jQuery = $;
+const FormControl = require('react-bootstrap').FormControl;
 
 
 class Input extends Component {
