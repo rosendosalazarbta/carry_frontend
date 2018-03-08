@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Input from './Commons/Input';
-import '../Styles/carry-main.css';
 import {
     Col,
     Button,

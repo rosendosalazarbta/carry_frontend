@@ -2,15 +2,16 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import history from './history';
 
-import './index.css';
-import App from './App';
+// import './index.css';
+// import App from './App';
 import registerServiceWorker from './registerServiceWorker';
-import GetMyRide from './Components/GetMyRide';
+// import GetMyRide from './Components/GetMyRide';
 
 // authentication dependencies
 import LoginCallback from './logincallback'
 import Auth from './auth/Auth'
 import { HashRouter, Route, Switch } from 'react-router-dom';
+import Dashboard from './Components/Dashboard';
 
 // ReactDOM.render(<GetMyRide />, document.getElementById('content'));
 // registerServiceWorker();
@@ -38,7 +39,7 @@ ReactDOM.render((
             <Switch>
                 <Route path="/home"
                     render={(props) => {
-                        return <App />
+                        return <Dashboard />
                         
                     }}
                 />
