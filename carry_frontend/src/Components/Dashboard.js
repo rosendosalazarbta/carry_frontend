@@ -5,34 +5,52 @@ import '../Css/carry.css';
 
 export default class Dashboard extends Component {
     constructor(props) {
-        super(props)
+        super(props);
+    }
+
+    scrollTrigger() {
+        this.refs['mainNavbar'].classList.add('navbar-shrink');
     }
 
     render() {
         return (
             <div>
                 { /*      Navigation      */}
-                <nav className="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+                <nav className="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav" ref='mainNavbar'>
                     <div className="container">
                         <a className="navbar-brand js-scroll-trigger" href="#page-top">Carry</a>
-                        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                        <button className="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive"
                             aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                             Menu
                             <i className="fa fa-bars"></i>
                         </button>
                         <div className="collapse navbar-collapse" id="navbarResponsive">
-                            <ul className="navbar-nav text-uppercase ml-auto">
+                            <ul className="navbar-nav text-uppercase">
                                 <li className="nav-item">
-                                    <a class="nav-link js-scroll-trigger" href="#register">Register</a>
+                                    <a class="nav-link js-scroll-trigger" href="#register" onClick={() => { this.scrollTrigger(); }}>Register</a>
                                 </li>
                                 <li className="nav-item">
-                                    <a className="nav-link js-scroll-trigger" href="#advantage">Advantage</a>
+                                    <a className="nav-link js-scroll-trigger" href="#advantage" onClick={() => { this.scrollTrigger(); }}>Advantage</a>
                                 </li>
                                 <li className="nav-item">
-                                    <a className="nav-link js-scroll-trigger" href="#team">Team</a>
+                                    <a className="nav-link js-scroll-trigger" href="#team" onClick={() => { this.scrollTrigger(); }}>Team</a>
                                 </li>
                                 <li className="nav-item">
-                                    <a className="nav-link js-scroll-trigger" href="#contact">Contact</a>
+                                    <a className="nav-link js-scroll-trigger" href="#contact" onClick={() => { this.scrollTrigger(); }}>Contact</a>
+                                </li>
+                            </ul>
+                            <ul className="navbar-nav ml-auto">
+                                <li className="dropdown nav-item">
+                                    <a href="#" className="dropdown-toggle nav-link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">
+                                        <img className="px-navbar-image rounded-circle" style={{ width: 30, height: 30 }} src="http://www.stickpng.com/assets/images/585e4bf3cb11b227491c339a.png" alt="" />
+                                        <span className="hidden-md" style={{ marginLeft: 5, fontSize: 12 }}>Rosendo <strong>Salazar</strong></span>
+                                    </a>
+                                    <ul class="dropdown-menu" style={{ backgroundColor: '#212529', fontSize: 15 }}>
+                                        <li><a className="nav-link" href="#">Profile</a></li>
+                                        <li><a className="nav-link" href="#">Validation</a></li>
+                                        <li className="divider"></li>
+                                        <li><a className="nav-link" href="#">Log Out</a></li>
+                                    </ul>
                                 </li>
                             </ul>
                         </div>
@@ -49,7 +67,7 @@ export default class Dashboard extends Component {
                             </div>
                         </div>
                         <div className="row">
-                        here put Component Steps...
+                            here put Component Steps...
                         </div>
                     </div>
                 </section>
