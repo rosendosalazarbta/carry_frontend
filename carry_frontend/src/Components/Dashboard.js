@@ -6,17 +6,41 @@ import '../Css/carry.css';
 export default class Dashboard extends Component {
     constructor(props) {
         super(props);
+        this.navbarCollapse = this.navbarCollapse.bind(this);
+        this.state = {
+            classNavBar: '',
+            isSignIn: false
+        };
     }
 
-    scrollTrigger() {
-        this.refs['mainNavbar'].classList.add('navbar-shrink');
+    componentDidMount() {
+        this.navbarCollapse();
+        window.removeEventListener("scroll", null);
+        window.addEventListener('scroll', this.navbarCollapse);
+    }
+
+    navbarCollapse() {
+        if (window.pageYOffset > 100) this.scrollTrigger(false);
+        else this.scrollTrigger();
+    };
+
+    scrollTrigger(isRemove = true) {
+        this.setState({ classNavBar: isRemove ? '' : 'navbar-shrink' });
+    }
+
+    singIn() {
+        this.setState({ isSignIn: true });
+    }
+
+    signOut() {
+        this.setState({ isSignIn: false });
     }
 
     render() {
         return (
             <div>
                 { /*      Navigation      */}
-                <nav className="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav" ref='mainNavbar'>
+                <nav className={"navbar navbar-expand-lg navbar-dark fixed-top " + this.state.classNavBar} id="mainNav" ref="mainNavbar">
                     <div className="container">
                         <a className="navbar-brand js-scroll-trigger" href="#page-top">Carry</a>
                         <button className="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive"
@@ -27,7 +51,7 @@ export default class Dashboard extends Component {
                         <div className="collapse navbar-collapse" id="navbarResponsive">
                             <ul className="navbar-nav text-uppercase">
                                 <li className="nav-item">
-                                    <a class="nav-link js-scroll-trigger" href="#register" onClick={() => { this.scrollTrigger(); }}>Register</a>
+                                    <a className="nav-link js-scroll-trigger" href="#register" onClick={() => { this.scrollTrigger(); }}>Register</a>
                                 </li>
                                 <li className="nav-item">
                                     <a className="nav-link js-scroll-trigger" href="#advantage" onClick={() => { this.scrollTrigger(); }}>Advantage</a>
@@ -40,16 +64,19 @@ export default class Dashboard extends Component {
                                 </li>
                             </ul>
                             <ul className="navbar-nav ml-auto">
-                                <li className="dropdown nav-item">
+                                <li className="nav-item text-uppercase" style={{ alignSelf: 'center', display: !this.state.isSignIn ? '' : 'none' }}>
+                                    <button className="btn btn-dark font-weight-bold" data-toggle="modal" data-target="#logInModal">Log In</button>
+                                </li>
+                                <li className="dropdown nav-item" style={{ display: this.state.isSignIn ? '' : 'none' }}>
                                     <a href="#" className="dropdown-toggle nav-link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">
                                         <img className="px-navbar-image rounded-circle" style={{ width: 30, height: 30 }} src="http://www.stickpng.com/assets/images/585e4bf3cb11b227491c339a.png" alt="" />
                                         <span className="hidden-md" style={{ marginLeft: 5, fontSize: 12 }}>Rosendo <strong>Salazar</strong></span>
                                     </a>
-                                    <ul class="dropdown-menu" style={{ backgroundColor: '#212529', fontSize: 15 }}>
+                                    <ul className="dropdown-menu" style={{ backgroundColor: '#212529', fontSize: 15 }}>
                                         <li><a className="nav-link" href="#">Profile</a></li>
                                         <li><a className="nav-link" href="#">Validation</a></li>
                                         <li className="divider"></li>
-                                        <li><a className="nav-link" href="#">Log Out</a></li>
+                                        <li><a className="nav-link" href="#" onClick={() => { this.signOut(); }}>Log Out</a></li>
                                     </ul>
                                 </li>
                             </ul>
@@ -96,16 +123,16 @@ export default class Dashboard extends Component {
                                     <i className="fa fa-laptop fa-stack-1x fa-inverse"></i>
                                 </span>
                                 <h4 className="service-heading">Responsive Design</h4>
-                                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex
+                                <p className="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex
             magni, dicta impedit.</p>
                             </div>
-                            <div class="col-md-4">
-                                <span class="fa-stack fa-4x">
-                                    <i class="fa fa-circle fa-stack-2x text-primary"></i>
-                                    <i class="fa fa-lock fa-stack-1x fa-inverse"></i>
+                            <div className="col-md-4">
+                                <span className="fa-stack fa-4x">
+                                    <i className="fa fa-circle fa-stack-2x text-primary"></i>
+                                    <i className="fa fa-lock fa-stack-1x fa-inverse"></i>
                                 </span>
-                                <h4 class="service-heading">Web Security</h4>
-                                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex
+                                <h4 className="service-heading">Web Security</h4>
+                                <p className="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex
             magni, dicta impedit.</p>
                             </div>
                         </div>
@@ -213,7 +240,7 @@ export default class Dashboard extends Component {
                         </div>
                         <div className="row">
                             <div className="col-lg-12">
-                                <form id="contactForm" name="sentMessage" novalidate>
+                                <form id="contactForm" name="sentMessage">
                                     <div className="row">
                                         <div className="col-md-6">
                                             <div className="form-group">
@@ -238,7 +265,7 @@ export default class Dashboard extends Component {
                                         <div className="clearfix"></div>
                                         <div className="col-lg-12 text-center">
                                             <div id="success"></div>
-                                            <button id="sendMessageButton" className="btn btn-primary btn-xl text-uppercase" type="submit">Send Message</button>
+                                            <button id="sendMessageButton" className="btn btn-primary btn-xl text-uppercase font-weight-bold" type="submit">Send Message</button>
                                         </div>
                                     </div>
                                 </form>
@@ -248,6 +275,51 @@ export default class Dashboard extends Component {
                 </section>
                 { /*      Footer      */}
                 <Footer />
+                { /*      Modal logIn      */}
+                <div className="modal fade login-modal" id="logInModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div className="modal-dialog modal-dialog-centered" role="document">
+                        <div className="modal-content">
+                            {/* <div className="close-modal" data-dismiss="modal">
+                                <div className="lr">
+                                    <div className="rl">
+                                    </div>
+                                </div>
+                            </div> */}
+                            <div class="modal-header">
+                                <h5 className="modal-title" id="exampleModalLongTitle">Sign In</h5>
+                                <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div className="modal-body">
+                                <form className="form-signin">
+                                    <div className="text-center mb-4">
+                                        <i className="fa fa-user-circle mb-4" style={{ fontSize: 90 }} />
+                                        <h1 className="h3 mb-3 font-weight-normal">Carry</h1>
+                                    </div>
+
+                                    <div className="form-group">
+                                        <label htmlFor="exampleInputEmail1">Email address</label>
+                                        <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" />
+                                        {/* <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small> */}
+                                    </div>
+                                    <div className="form-group">
+                                        <label htmlFor="exampleInputPassword1">Password</label>
+                                        <input type="password" className="form-control" id="exampleInputPassword1" placeholder="Password" />
+                                    </div>
+
+                                    <div className="checkbox mb-3">
+                                        <label>
+                                            <input type="checkbox" value="remember-me" /> Remember me
+                                        </label>
+                                    </div>
+                                    <button className="btn btn-lg btn-primary btn-block font-weight-bold" type="submit" data-dismiss="modal" aria-label="Close" onClick={() => { this.singIn(); }}>Sign in</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         );
     }

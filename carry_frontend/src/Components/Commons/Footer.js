@@ -23,7 +23,7 @@ export default class Footer extends Component {
                                 </li>
                                 <li className="list-inline-item">
                                     <a href="#">
-                                        <i class="fa fa-facebook"></i>
+                                        <i className="fa fa-facebook"></i>
                                     </a>
                                 </li>
                                 <li className="list-inline-item">

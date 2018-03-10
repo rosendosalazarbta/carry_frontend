@@ -12,7 +12,7 @@ export default class Header extends Component {
                     <div className="intro-text">
                         <div className="intro-lead-in">Welcome to Carry!</div>
                         <div className="intro-heading text-uppercase">It's Nice To Meet You</div>
-                        <a className="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#register">Register Now</a>
+                        <a className="btn btn-primary btn-xl text-uppercase font-weight-bold js-scroll-trigger" href="#register">Register Now</a>
                     </div>
                 </div>
             </header>
