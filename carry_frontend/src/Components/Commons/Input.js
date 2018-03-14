@@ -1,17 +1,45 @@
 import React, { Component } from 'react';
-import { FormControl, Radio } from 'react-bootstrap';
+import { Radio } from 'react-bootstrap';
+import PlacesAutocomplete, { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
 
 class InputComponent extends Component {
     constructor(props) {
         super(props);
         this.state = {
             value: '',
-        }
+            selected: 'l-v',
+            address: '',
+        };
+        this.onChange = (address) => this.setState({ address });
+        // this.onChangeSelected = (selected) => this.setState({ selected });
+        this.onChangeSelected = (selected) => this.handleOptionChange(selected);
+        //this.handleOptionChange = this.handleOptionChange.bind(this);
     }
 
-    onChange(event) {
-        //this.setState({ value: event.target.value });
-        this.props.onChange(event);
+    handleFormSubmit = (event) => {
+        event.preventDefault()
+        geocodeByAddress(this.state.address)
+            .then(results => getLatLng(results[0]))
+            .then(latLng => console.log('Success', latLng))
+            .catch(error => console.error('Error', error))
+    }
+
+    // onChange(event) {
+    //     this.props.onChange(event);
+    // }
+
+    // handleOptionChange(changeEvent) {
+    //     console.log(changeEvent.target);
+    //     this.setState({
+    //         selected: changeEvent.target.value
+    //     });
+    // }
+
+    handleOptionChange(select) {
+        console.log(select.target.value);
+        this.setState({
+            selected: select.target.value
+        });
     }
 
     renderSwitch(param) {
@@ -24,19 +52,39 @@ class InputComponent extends Component {
                     value={this.props.value}
                 />;
             case 'text':
-                return <FormControl
-                    id="formControlsText"
-                    type={this.props.type}
-                    placeholder={this.props.placeholder}
-                    onChange={(event) => { this.onChange(event); }}
-                />;
+                const inputProps = {
+                    value: this.state.address,
+                    placeholder: this.props.placeholder,
+                    onChange: this.onChange,
+                }
+                const myStyles = {
+                    input: { width: '100%', padding: 'auto' },
+                    autocompleteContainer: { border: '0 solid' },
+                    autocompleteItemActive: { backgroundColor: '#d4d1d1' }
+                }
+                const renderSuggestion = ({ formattedSuggestion }) => (
+                    <div><i className="fa fa-map-marker" />
+                        <strong>{' ' + formattedSuggestion.mainText}</strong>{' '}
+                        <small>{formattedSuggestion.secondaryText}</small>
+                    </div>
+                )
+                return <PlacesAutocomplete inputProps={inputProps} styles={myStyles} renderSuggestion={renderSuggestion}
+                    highlightFirstSuggestion={true} />;
             case 'radio':
                 return (
-                    <Radio
-                        id="formControlsRadio"
-                        type={this.props.type}
-                        name={this.props.name}
-                    ><p>{this.props.text}</p></Radio>);
+                    <label className='lbl-radio'>
+                        <Radio
+                            // id={this.props.value}
+                            name={this.props.name}
+                            value={this.props.value}
+                            // checked={this.state.selected === this.props.value}
+                            // checked={this.props.check==='true'}
+                            onChange={this.onChangeSelected}
+                        //onChange={(e) => this.setState({ selected: e.target.value })}
+                        // onChange={this.handleOptionChange}
+                        >{this.props.text}</Radio>
+                    </label>
+                );
             default:
                 return null;
         }
@@ -44,16 +92,14 @@ class InputComponent extends Component {
 
     render() {
         return (
-            <div className={this.props.className}>
-                {this.renderSwitch(this.props.type)}
-            </div>
+            this.renderSwitch(this.props.type)
         );
     }
 }
 
 InputComponent.defaultProps = {
     value: '',
-    placeholder: 'Text in',
+    placeholder: 'placeholder',
     type: 'text',
     onChange: (value) => { }
 }
