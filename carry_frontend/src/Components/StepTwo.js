@@ -36,9 +36,17 @@ class StepTwo extends Component {
                     </div>
                 </div>
                 <div className='carry-radio-container'>
-                    <Input type='radio' name='horary1' value='l-v' text='De Lunes a Viernes' />
-                    <Input type='radio' name='horary1' value='l-s' text='De Lunes a Sabado' />
-                    <Input type='radio' name='horary1' value='l-d' text='De Lunes a Domingo' />
+                    <Input type='radio' name='horary1' value='l-v' text='De Lunes a Viernes' onChange={(event) => {
+                        console.log(event.target.value);
+                    }} propertys={{
+                        checked: true
+                    }} />
+                    <Input type='radio' name='horary1' value='l-s' text='De Lunes a Sabado' onChange={(event) => {
+                        console.log(event.target.value);
+                    }} />
+                    <Input type='radio' name='horary1' value='l-d' text='De Lunes a Domingo'onChange={(event) => {
+                        console.log(event.target.value);
+                    }} />
 
                     {/* <label className='lbl-radio'>
                         <Radio name='horary' value='l-v' checked={true} onChange={(e) => alert(e.target.value)}

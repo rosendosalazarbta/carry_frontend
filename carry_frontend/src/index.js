@@ -8,6 +8,7 @@ import Auth from './auth/Auth'
 import { HashRouter, Route, Switch } from 'react-router-dom';
 import Dashboard from './Components/Dashboard';
 import dictionary from './General/Dictionary';
+import StepTwo from '../src/Components/StepTwo';
 
 dictionary.init();
 const auth = new Auth();
@@ -33,6 +34,12 @@ ReactDOM.render((
                 render={(props) => {
                     if (auth.isAuthenticated()) return <Dashboard auth={auth} {...props} />;
                     return <Dashboard auth={auth} {...props} />;
+
+                }}
+            />
+            <Route path="/steptwo"
+                render={(props) => {
+                    return <StepTwo auth={auth} {...props} />;
 
                 }}
             />

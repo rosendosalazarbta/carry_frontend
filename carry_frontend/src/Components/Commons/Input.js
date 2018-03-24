@@ -12,8 +12,9 @@ class InputComponent extends Component {
         };
         this.onChange = (address) => this.setState({ address });
         // this.onChangeSelected = (selected) => this.setState({ selected });
-        this.onChangeSelected = (selected) => this.handleOptionChange(selected);
+        // this.onChangeSelected = (selected) => this.handleOptionChange(selected);
         //this.handleOptionChange = this.handleOptionChange.bind(this);
+        this.onChangeSelected = this.onChangeSelected.bind(this);
     }
 
     handleFormSubmit = (event) => {
@@ -24,6 +25,12 @@ class InputComponent extends Component {
             .catch(error => console.error('Error', error))
     }
 
+    onChangeSelected = (event) => {
+        this.props.onChange(event);
+        this.setState({
+            selected: event.target.value
+        });
+    }
     // onChange(event) {
     //     this.props.onChange(event);
     // }
@@ -59,7 +66,7 @@ class InputComponent extends Component {
                 }
                 const myStyles = {
                     input: { width: '100%', padding: 'auto' },
-                    autocompleteContainer: { border: '0 solid' },
+                    autocompleteContainer: { border: '0 solid', zindex: 1000, 'z-index': '1000' },
                     autocompleteItemActive: { backgroundColor: '#d4d1d1' }
                 }
                 const renderSuggestion = ({ formattedSuggestion }) => (
@@ -80,6 +87,7 @@ class InputComponent extends Component {
                             // checked={this.state.selected === this.props.value}
                             // checked={this.props.check==='true'}
                             onChange={this.onChangeSelected}
+                            {...this.props.propertys}
                         //onChange={(e) => this.setState({ selected: e.target.value })}
                         // onChange={this.handleOptionChange}
                         >{this.props.text}</Radio>

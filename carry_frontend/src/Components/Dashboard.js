@@ -4,7 +4,7 @@ import Footer from './Commons/Footer';
 import '../Css/carry.css';
 import general from '../General/General';
 import history from '../history';
-
+import StepTwo from '../Components/StepTwo';
 
 export default class Dashboard extends Component {
     constructor(props) {
@@ -104,7 +104,7 @@ export default class Dashboard extends Component {
                             </div>
                         </div>
                         <div className="row">
-                            here put Component Steps...
+                            <StepTwo />
                         </div>
                     </div>
                 </section>
