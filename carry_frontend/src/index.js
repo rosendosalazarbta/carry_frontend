@@ -1,23 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import history from './history';
-
-// import './index.css';
-// import App from './App';
 import registerServiceWorker from './registerServiceWorker';
-// import GetMyRide from './Components/GetMyRide';
-
 // authentication dependencies
 import LoginCallback from './logincallback'
 import Auth from './auth/Auth'
 import { HashRouter, Route, Switch } from 'react-router-dom';
 import Dashboard from './Components/Dashboard';
+import dictionary from './General/Dictionary';
 
-// ReactDOM.render(<GetMyRide />, document.getElementById('content'));
-// registerServiceWorker();
-import StepTwo from './Components/StepTwo';
-
-
+dictionary.init();
 const auth = new Auth();
 
 const handleAuthentication = (nextState, replace) => {
@@ -35,49 +27,34 @@ const handleAuthentication = (nextState, replace) => {
 }
 
 ReactDOM.render((
-        <HashRouter basename="/" >
-            <Switch>
-                <Route path="/home"
-                    render={(props) => {
-                        return <Dashboard />
-                        
-                    }}
-                />
-                <Route path="/StepTwo"
-                    render={(props) => {
-                        return <StepTwo />
-                        
-                    }}
-                />
-                {/* <Route path="/movements/:id"
-                    render={(props) => {
-                        if (!auth.isAuthenticated()) {
-                            history.replace('/login');
-                            return null
-                        }else{
-                            return <Movements {...props} />
-                        }
-                        
-                    }}
-                /> */}
-                <Route path="/login"
-                    render={(props) => {
-                        //const auth = new Auth();
-                        auth.login();
-                    }}
-                />
-                <Route path="/"
-                    render={(props) => {
-                        //const auth = new Auth();
-                        //auth.login();
+    <HashRouter basename="/" >
+        <Switch>
+            <Route path="/home"
+                render={(props) => {
+                    if (auth.isAuthenticated()) return <Dashboard auth={auth} {...props} />;
+                    return <Dashboard auth={auth} {...props} />;
 
-                        handleAuthentication(props);
-                        return <LoginCallback {...props} />
-                    }}
-                />
-            </Switch>
-        </HashRouter>
-    ), document.getElementById('content'),
+                }}
+            />
+            <Route path="/login"
+                render={(props) => {
+                    //const auth = new Auth();
+                    auth.login();
+                }}
+            />
+            <Route path="/"
+                render={(props) => {
+                    //const auth = new Auth();
+                    //auth.login();
+
+                    // handleAuthentication(props);
+                    // return <LoginCallback {...props} />
+                    return <Dashboard auth={auth} {...props} />;
+                }}
+            />
+        </Switch>
+    </HashRouter>
+), document.getElementById('content'),
 );
 
 registerServiceWorker();

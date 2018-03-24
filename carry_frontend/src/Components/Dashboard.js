@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import Header from './Commons/Header';
 import Footer from './Commons/Footer';
 import '../Css/carry.css';
+import general from '../General/General';
+import history from '../history';
+
 
 export default class Dashboard extends Component {
     constructor(props) {
@@ -13,10 +16,16 @@ export default class Dashboard extends Component {
         };
     }
 
-    componentDidMount() {
+    async componentDidMount() {
         this.navbarCollapse();
         window.removeEventListener("scroll", null);
         window.addEventListener('scroll', this.navbarCollapse);
+        console.log('Api call 1');
+        const data1 = await general.apiCall('https://api.github.com', 'GET', null, null);
+        console.log(data1);
+        console.log('Api call 2');
+        const data2 = await general.apiCall('https://api.github.com', 'GET', null, null);
+        console.log(data2);
     }
 
     navbarCollapse() {
@@ -24,8 +33,9 @@ export default class Dashboard extends Component {
         else this.scrollTrigger();
     };
 
-    scrollTrigger(isRemove = true) {
+    scrollTrigger(isRemove = true, tag) {
         this.setState({ classNavBar: isRemove ? '' : 'navbar-shrink' });
+        // if (tag) history.push(`/home/#${tag}`)
     }
 
     singIn() {
@@ -51,16 +61,16 @@ export default class Dashboard extends Component {
                         <div className="collapse navbar-collapse" id="navbarResponsive">
                             <ul className="navbar-nav text-uppercase">
                                 <li className="nav-item">
-                                    <a className="nav-link js-scroll-trigger" href="#register" onClick={() => { this.scrollTrigger(); }}>Register</a>
+                                    <a className="nav-link js-scroll-trigger" href="#register" onClick={() => { this.scrollTrigger(true, 'register'); }}>Register</a>
                                 </li>
                                 <li className="nav-item">
-                                    <a className="nav-link js-scroll-trigger" href="#advantage" onClick={() => { this.scrollTrigger(); }}>Advantage</a>
+                                    <a className="nav-link js-scroll-trigger" href="#advantage" onClick={() => { this.scrollTrigger(true, 'advantage'); }}>Advantage</a>
                                 </li>
                                 <li className="nav-item">
-                                    <a className="nav-link js-scroll-trigger" href="#team" onClick={() => { this.scrollTrigger(); }}>Team</a>
+                                    <a className="nav-link js-scroll-trigger" href="#team" onClick={() => { this.scrollTrigger(true, 'team'); }}>Team</a>
                                 </li>
                                 <li className="nav-item">
-                                    <a className="nav-link js-scroll-trigger" href="#contact" onClick={() => { this.scrollTrigger(); }}>Contact</a>
+                                    <a className="nav-link js-scroll-trigger" href="#contact" onClick={() => { this.scrollTrigger(true, 'contact'); }}>Contact</a>
                                 </li>
                             </ul>
                             <ul className="navbar-nav ml-auto">
@@ -73,8 +83,8 @@ export default class Dashboard extends Component {
                                         <span className="hidden-md" style={{ marginLeft: 5, fontSize: 12 }}>Rosendo <strong>Salazar</strong></span>
                                     </a>
                                     <ul className="dropdown-menu" style={{ backgroundColor: '#212529', fontSize: 15 }}>
-                                        <li><a className="nav-link" href="#">Profile</a></li>
-                                        <li><a className="nav-link" href="#">Validation</a></li>
+                                        <li><a className="nav-link" href="#/">Profile</a></li>
+                                        <li><a className="nav-link" href="#/">Validation</a></li>
                                         <li className="divider"></li>
                                         <li><a className="nav-link" href="#" onClick={() => { this.signOut(); }}>Log Out</a></li>
                                     </ul>
@@ -276,7 +286,7 @@ export default class Dashboard extends Component {
                 { /*      Footer      */}
                 <Footer />
                 { /*      Modal logIn      */}
-                <div className="modal fade login-modal" id="logInModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div className="modal fade login-modal animated rubberBand" id="logInModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                     <div className="modal-dialog modal-dialog-centered" role="document">
                         <div className="modal-content">
                             {/* <div className="close-modal" data-dismiss="modal">
@@ -285,7 +295,7 @@ export default class Dashboard extends Component {
                                     </div>
                                 </div>
                             </div> */}
-                            <div class="modal-header">
+                            <div className="modal-header">
                                 <h5 className="modal-title" id="exampleModalLongTitle">Sign In</h5>
                                 <button type="button" className="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>

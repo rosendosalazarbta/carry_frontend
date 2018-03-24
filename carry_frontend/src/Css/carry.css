@@ -3,6 +3,10 @@ body {
   font-family: 'Roboto Slab', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
+body.modal-open {
+  padding-right: 0!important;
+}
+
 p {
   line-height: 1.75;
 }
