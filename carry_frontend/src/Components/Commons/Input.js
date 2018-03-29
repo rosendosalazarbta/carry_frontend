@@ -1,19 +1,17 @@
 import React, { Component } from 'react';
 import { Radio } from 'react-bootstrap';
 import PlacesAutocomplete, { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
+// import car from '../Img/car.png';
 
 class InputComponent extends Component {
     constructor(props) {
         super(props);
         this.state = {
             value: '',
-            selected: 'l-v',
+            selected: '',
             address: '',
         };
         this.onChange = (address) => this.setState({ address });
-        // this.onChangeSelected = (selected) => this.setState({ selected });
-        // this.onChangeSelected = (selected) => this.handleOptionChange(selected);
-        //this.handleOptionChange = this.handleOptionChange.bind(this);
         this.onChangeSelected = this.onChangeSelected.bind(this);
     }
 
@@ -31,19 +29,8 @@ class InputComponent extends Component {
             selected: event.target.value
         });
     }
-    // onChange(event) {
-    //     this.props.onChange(event);
-    // }
-
-    // handleOptionChange(changeEvent) {
-    //     console.log(changeEvent.target);
-    //     this.setState({
-    //         selected: changeEvent.target.value
-    //     });
-    // }
 
     handleOptionChange(select) {
-        console.log(select.target.value);
         this.setState({
             selected: select.target.value
         });
@@ -81,16 +68,16 @@ class InputComponent extends Component {
                 return (
                     <label className='lbl-radio'>
                         <Radio
-                            // id={this.props.value}
                             name={this.props.name}
                             value={this.props.value}
-                            // checked={this.state.selected === this.props.value}
-                            // checked={this.props.check==='true'}
                             onChange={this.onChangeSelected}
                             {...this.props.propertys}
-                        //onChange={(e) => this.setState({ selected: e.target.value })}
-                        // onChange={this.handleOptionChange}
-                        >{this.props.text}</Radio>
+                        >{this.props.text}</Radio>                        
+                        {
+                            this.props.ruta != null &&
+                            <img src={this.props.ruta} />
+                            // <img src={car} width="50" height="50" />
+                        }                       
                     </label>
                 );
             default:

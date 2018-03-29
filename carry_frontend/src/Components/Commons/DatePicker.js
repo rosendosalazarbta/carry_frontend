@@ -32,7 +32,6 @@ class Picker extends Component {
 
     handleChange(date) {
         this.setState({ startDate: date })
-        //this.toggleCalendar()
     }
 
     render() {
@@ -52,22 +51,6 @@ class Picker extends Component {
                     timeCaption="time"
                 />
             </div>
-            // <div className={this.props.className}>
-            //     <button
-            //         className="example-custom-input "
-            //         onClick={this.toggleCalendar}>
-            //         {!this.state.startDate ? "Hora de llegada" : this.state.startDate.format("DD-MM-YYYY")}
-            //     </button>
-            //     {
-            //         this.state.isOpen && (
-            //             <DatePicker
-            //                 selected={this.state.startDate}
-            //                 onChange={this.handleChange}
-            //                 //withPortal
-            //                 inline />
-            //         )
-            //     }
-            // </div>
         );
     }
 }

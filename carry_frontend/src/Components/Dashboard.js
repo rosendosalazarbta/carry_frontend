@@ -2,9 +2,19 @@ import React, { Component } from 'react';
 import Header from './Commons/Header';
 import Footer from './Commons/Footer';
 import '../Css/carry.css';
+import '../Css/multiSteps.css'
 import general from '../General/General';
 import history from '../history';
+import StepOne from '../Components/StepOne'
 import StepTwo from '../Components/StepTwo';
+import MultiSteps from '../Components/Commons/MultiSteps';
+
+const steps = [
+    {name: 'StepOne', component: <StepOne/>},
+    {name: 'StepTwo', component: <StepTwo/>},
+    {name: 'StepThree', component: <StepTwo/>},
+    {name: 'StepFour', component: <StepTwo/>}
+];
 
 export default class Dashboard extends Component {
     constructor(props) {
@@ -104,7 +114,8 @@ export default class Dashboard extends Component {
                             </div>
                         </div>
                         <div className="row">
-                            <StepTwo />
+                            {/* <StepTwo /> */}
+                            <MultiSteps showNavigation={true} steps={steps}/>
                         </div>
                     </div>
                 </section>

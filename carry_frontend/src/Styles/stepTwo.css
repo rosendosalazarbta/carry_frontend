@@ -1,21 +1,16 @@
-body {
-    background-color: #1BAFE0;
-}
-
 .carry-row {
-    padding-top: 7rem;
-    padding-left: 20rem;
-    padding-right: 20rem;
+    /* padding-top: 7rem; */
+    /* padding-left: 20rem;
+    padding-right: 20rem; */
+    width: 100%;
 }
 
 .carry-radio-container {
     padding-top: 2em;
 }
 
-/* .carry-row>.carry-container>div> */
-
 .label-input {
-    color: #ffff;
+    color: rgb(0, 0, 0);
     display: block;
     margin: 3em 0 .5em 0;
 }
@@ -35,7 +30,7 @@ div.centerpanel {
 }
 
 .lbl-radio {
-    color: #ffff !important;
+    color: rgb(0, 0, 0) !important;
     font-size: 14px !important;
     display: block;
 }
@@ -78,7 +73,8 @@ div.centerpanel {
 
 .button {
     border-radius: .50rem;
-    background-color: #216ba5;
+    /* background-color: #216ba5; */
+    background-color: rgb(0, 0, 0);
     border: none;
     color: #FFFFFF;
     text-align: center;
@@ -106,7 +102,8 @@ div.centerpanel {
 }
 
 .button:hover {
-    background-color: #3481bd;
+    /* background-color: #3481bd; */
+    background-color: #7d7d7d;
 }
 
 .button:hover span {
