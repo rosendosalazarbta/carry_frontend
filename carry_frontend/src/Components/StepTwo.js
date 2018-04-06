@@ -6,8 +6,8 @@ import Picker from './Commons/DatePicker';
 class StepTwo extends Component {
     render() {
         return (
-            <div className='carry-row'>
-                <div className='carry-container'>
+            <div className='carry-row-two'>
+                <div className='carry-container-two'>
                     <div>
                         <label className='label-input'>Me traslado desde:</label>
                         <Input type='text' placeholder='Direccion de inicio' />
@@ -23,7 +23,7 @@ class StepTwo extends Component {
                         </div>
                     </div>
                 </div>
-                <div className='carry-radio-container'>
+                <div className='carry-radio-container-two'>
                     <Input type='radio' name='horary1' value='l-v' text='De Lunes a Viernes' onChange={(event) => { }}
                         propertys={{ checked: true }} />
                     <Input type='radio' name='horary1' value='l-s' text='De Lunes a Sabado' onChange={(event) => { }} />

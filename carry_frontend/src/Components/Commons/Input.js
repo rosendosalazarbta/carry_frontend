@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Radio } from 'react-bootstrap';
 import PlacesAutocomplete, { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
-// import car from '../Img/car.png';
 
 class InputComponent extends Component {
     constructor(props) {
@@ -71,13 +70,17 @@ class InputComponent extends Component {
                             name={this.props.name}
                             value={this.props.value}
                             onChange={this.onChangeSelected}
-                            {...this.props.propertys}
-                        >{this.props.text}</Radio>                        
-                        {
-                            this.props.ruta != null &&
-                            <img src={this.props.ruta} />
-                            // <img src={car} width="50" height="50" />
-                        }                       
+                            className={this.props.ruta != null && 'btn-radio'}
+                            {...this.props.propertys}>
+                            {
+                                this.props.ruta != null &&
+                                <img src={this.props.ruta} width={"50"} height={"50"} className='img-radio' />
+                            }
+                            {
+                                this.props.ruta == null && <i></i>
+                            } 
+                            {this.props.text}                           
+                        </Radio>
                     </label>
                 );
             default:

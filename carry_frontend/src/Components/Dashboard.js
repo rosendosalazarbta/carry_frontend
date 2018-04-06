@@ -7,12 +7,13 @@ import general from '../General/General';
 import history from '../history';
 import StepOne from '../Components/StepOne'
 import StepTwo from '../Components/StepTwo';
+import StepThree from '../Components/StepThree';
 import MultiSteps from '../Components/Commons/MultiSteps';
 
 const steps = [
     {name: 'StepOne', component: <StepOne/>},
     {name: 'StepTwo', component: <StepTwo/>},
-    {name: 'StepThree', component: <StepTwo/>},
+    {name: 'StepThree', component: <StepThree/>},
     {name: 'StepFour', component: <StepTwo/>}
 ];
 
