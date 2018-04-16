@@ -9,6 +9,8 @@ import { HashRouter, Route, Switch } from 'react-router-dom';
 import Dashboard from './Components/Dashboard';
 import dictionary from './General/Dictionary';
 import StepTwo from '../src/Components/StepTwo';
+import Profile from '../src/Components/Profile';
+
 
 dictionary.init();
 const auth = new Auth();
@@ -40,6 +42,12 @@ ReactDOM.render((
             <Route path="/steptwo"
                 render={(props) => {
                     return <StepTwo auth={auth} {...props} />;
+
+                }}
+            />
+            <Route path="/profile"
+                render={(props) => {
+                    return <Profile auth={auth} {...props} />;
 
                 }}
             />
