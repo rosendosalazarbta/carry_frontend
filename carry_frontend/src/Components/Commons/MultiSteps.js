@@ -1,4 +1,5 @@
 import React from 'react';
+import '../../Css/multiSteps.css';
 
 export default class MultiStep extends React.Component {
   constructor(props) {
@@ -103,9 +104,8 @@ export default class MultiStep extends React.Component {
   }
 
   render() {
-
     return (
-      <div className="container" onKeyDown={this.handleKeyDown}>
+      <div className="multisteps-container" onKeyDown={this.handleKeyDown}>
         <ol className="progtrckr">
           {this.renderSteps()}
         </ol>

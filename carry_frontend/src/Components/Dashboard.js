@@ -2,19 +2,19 @@ import React, { Component } from 'react';
 import Header from './Commons/Header';
 import Footer from './Commons/Footer';
 import '../Css/carry.css';
-import '../Css/multiSteps.css'
 import general from '../General/General';
 import history from '../history';
 import StepOne from '../Components/StepOne'
 import StepTwo from '../Components/StepTwo';
 import StepThree from '../Components/StepThree';
 import MultiSteps from '../Components/Commons/MultiSteps';
+import StepZilla from "react-stepzilla";
 
 const steps = [
-    {name: 'StepOne', component: <StepOne/>},
-    {name: 'StepTwo', component: <StepTwo/>},
-    {name: 'StepThree', component: <StepThree/>},
-    {name: 'StepFour', component: <StepTwo/>}
+    { name: 'StepOne', component: <StepOne /> },
+    { name: 'StepTwo', component: <StepTwo /> },
+    { name: 'StepThree', component: <StepThree /> },
+    { name: 'StepFour', component: <StepTwo /> }
 ];
 
 export default class Dashboard extends Component {
@@ -115,8 +115,10 @@ export default class Dashboard extends Component {
                             </div>
                         </div>
                         <div className="row">
-                            {/* <StepTwo /> */}
-                            <MultiSteps showNavigation={true} steps={steps}/>
+                            {/* <MultiSteps showNavigation={true} steps={steps}/> */}
+                            <div className='step-progress'>
+                                <StepZilla steps={steps} showNavigation={false} />
+                            </div>
                         </div>
                     </div>
                 </section>

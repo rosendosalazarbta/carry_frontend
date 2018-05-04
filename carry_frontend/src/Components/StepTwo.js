@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import '../Styles/stepTwo.css';
+import '../Css/stepTwo.css';
 import Input from './Commons/Input';
 import Picker from './Commons/DatePicker';
 

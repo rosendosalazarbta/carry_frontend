@@ -1,5 +1,5 @@
 import React,{Component} from 'react';
-import '../Styles/stepTwo.css';
+import '../Css/stepOne.css';
 import Input from './Commons/Input';
 import car from '../Img/car.png';
 import usergroup from '../Img/usergroup.png';

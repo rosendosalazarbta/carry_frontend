@@ -1,0 +1,21 @@
+.carry-row-one {
+    width: 100%;
+    height: 23rem;
+}
+
+.btn-radio label input[type=radio] {
+    visibility: hidden;
+    position: absolute;
+}
+
+.img-radio {
+    margin-right: 1rem;
+}
+
+.btn-radio>label {
+    cursor: pointer;
+}
+
+.btn-radio>label>input[type=radio]:checked+img+font {
+    font-weight: bold;
+}

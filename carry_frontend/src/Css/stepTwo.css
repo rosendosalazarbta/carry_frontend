@@ -1,53 +1,175 @@
-.carry-row {
-    padding-top: 7rem;
-    font-size: 17px;
-    padding-left: 30rem;
-    padding-right: 30rem;
-}
-.carry-row > .carry-container > div > label {
-    color: #ffff;
-    display: block;
-    margin: 3em 0 .5em 0;
-}
-.carry-row > .carry-container > div > div > input[type=button] {
-    background-color: #e8e8e8;
-    color: #5f5c5c;
-    margin-left: 1.5em;
-}
-.carry-row > .carry-container > div > div > input[type=text]{
+.carry-row-two {
     width: 100%;
-}
-.carry-radio-container{
-    padding-top: 2em;
-}
-.carry-row > .carry-radio-container > input[type=radio]{
-    float: left;
-}
-p {
-    color: #ffff;
-}
-.carry-row > input[type=submit]{
-    background-color: #2E8DEF;
-    border-color: #2E8DEF;
-    border: 0 solid;
-    padding: 10px 35px;
-    color: #ffff;
-    float: right;
-}
-.radio {
-    margin-bottom: 0;
-    margin-top: 0;
+    height: 23rem;
 }
 
+.carry-radio-container-two {
+    padding-top: 1em;
+}
+
+.label-input {
+    color: rgb(0, 0, 0);
+    display: block;
+    margin: 0em 0 .5em 0;
+}
 
 div.centerpanel {
-        width:100%;
-        height:100%;
-    }
-    .leftpanel {
-        display:inline-block;
-        width:85%;
-    }
-    .rightpanel {
-        display:inline-block;
-    }
+    width: 100%;
+}
+
+.leftpanel {
+    display: inline-block;
+    width: 75%;
+}
+
+.rightpanel {
+    display: inline-block;
+    width: 25%;
+}
+
+.lbl-radio {
+    color: rgb(0, 0, 0) !important;
+    font-size: 14px !important;
+    display: block;
+}
+
+.radio>label {
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+}
+
+.radio>label:hover>input[type=radio]+i {
+    box-shadow: inset 0 0 0 3px #fff;
+    background: gray;
+}
+
+.radio>label>input[type=radio]:checked+i {
+    box-shadow: inset 0 0 0 3px #fff;
+    background: rgb(0, 0, 0);
+}
+
+.radio>label>input[type=radio]:checked+i+font {
+    font-weight: bold;
+}
+
+.radio>label>input[type=radio] {
+    visibility: hidden;
+    position: absolute;
+}
+
+.radio>label>input[type=radio]+i {
+    display: inline-block;
+    vertical-align: middle;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    transition: 0.2s;
+    box-shadow: inset 0 0 0 .5rem #fff;
+    border: .04rem solid gray;
+    background: gray;
+}
+
+.react-datepicker-wrapper {
+    width: 100%;
+}
+
+.example-custom-input {
+    cursor: pointer;
+    background-color: #eaeaea !important;
+    font: inherit;
+    text-align: center;
+}
+
+.example-custom-input:hover {
+    background-color: #c7c6c6 !important;
+}
+
+/*  alinea las horas*/
+
+.react-datepicker__time-box>ul {
+    padding-left: .5rem;
+}
+
+/*  Oculta el calendario y deja solo las horas*/
+
+.react-datepicker__month-container, .react-datepicker__today-button, .react-datepicker__navigation--next, .react-datepicker__navigation--previous {
+    display: none;
+}
+
+.react-datepicker__input-container {
+    display: block !important;
+}
+
+#PlacesAutocomplete__autocomplete-container {
+    border-radius: .50rem !important;
+}
+
+.react-datepicker-popper[data-placement^="bottom"] .react-datepicker__triangle {
+    margin-top: -3rem !important;
+}
+
+.react-datepicker__time-container--with-today-button {
+    top: -2.5rem !important;
+    right: -4rem !important;
+}
+
+.react-datepicker__close-icon::after {
+    margin: -1.2rem auto 0 !important;
+}
+
+/* .button {
+    border-radius: .50rem;
+    background-color: rgb(0, 0, 0);
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    padding: 7.5px;
+    width: 140px;
+    transition: all 0.5s;
+    cursor: pointer;
+    float: right;
+} 
+
+.button span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+.button span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+
+.button:hover {
+    background-color: #7d7d7d;
+}
+
+.button:hover span {
+    padding-right: 25px;
+}
+
+.button:hover span:after {
+    opacity: 1;
+    right: 0;
+}*/
+
+input[type=text] {
+    width: 100%;
+    padding: .5rem .75rem;
+    font-size: .9rem;
+    color: #464a4c;
+    background-color: #fff;
+    background-image: none;
+    background-clip: padding-box;
+    border: .04rem solid rgba(0, 0, 0, .15);
+    border-radius: .50rem;
+    margin-bottom: 1.5rem;
+}

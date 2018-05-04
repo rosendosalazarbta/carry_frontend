@@ -6,7 +6,7 @@
 .carry-row-three {
     width: 50%;
     margin: 0 auto;
-    height: 400px;
+    height: 23rem;
 }
 
 .carry-row-three .nav {
@@ -18,7 +18,7 @@
 .carry-row-three .nav>li {
     width: 50%;
     background-color: #FFFF;
-    border-radius: 5px 5px 0 0;
+    border-radius: .5rem .5rem 0 0;
     border: none;
 }
 
@@ -28,7 +28,7 @@
 }
 
 .carry-row-three .nav>li>a {
-    padding: 10px 15px;
+    padding: 0.5rem 1rem;
     color: black;
 }
 
@@ -54,19 +54,19 @@
 
 .carry-row-three .nav-tabs {
     /* border-bottom: 1px solid #ddd */
-    border-bottom: 2px solid #000 !important;
+    border-bottom: .08rem solid #000 !important;
 }
 
 .carry-row-three .nav-tabs>li {
     float: left;
-    margin-bottom: -1px
+    margin-bottom: 0rem;
 }
 
 .carry-row-three .nav-tabs>li>a {
-    margin-right: 2px;
+    margin-right: 0rem;
     line-height: 1.42857143;
-    border: 1px solid transparent;
-    border-radius: 4px 4px 0 0
+    border: .12rem solid transparent;
+    border-radius: .5rem .5rem 0 0
 }
 
 .carry-row-three .nav-tabs>li.active>a, .carry-row-three .nav-tabs>li.active>a:focus, .carry-row-three .nav-tabs>li.active>a:hover {
@@ -86,4 +86,46 @@
 
 .fade.in {
     opacity: 1
+}
+
+/*
+    styles for images
+*/
+.lblRegister{
+    margin: 1.5rem auto;
+    width: 100%;
+    text-align: center!important;
+}
+.containerSocial{
+    width: 50%;
+    margin: 0 auto;
+    height: 23rem;
+}
+.listSocial{
+    list-style: none;
+    padding-left: 0;
+}
+#faceb {
+    background: url("../Img/social.png") -2.2rem -1.9rem;
+    width: 8.1rem;
+    height: 8rem;
+    background-repeat: no-repeat;
+    transform: scale(.5,.5);
+    display: inline-block;
+}
+#twit {
+    background: url("../Img/social.png") -27.2rem -1.9rem;
+    width: 8.1rem;
+    height: 8rem;
+    background-repeat: no-repeat;
+    transform: scale(.5,.5);
+    display: inline-block;
+}
+#gmail {
+    background: url("../Img/social.png") -2.2rem -13.5rem;
+    width: 8.3rem;
+    height: 8.3rem;
+    background-repeat: no-repeat;
+    transform: scale(.5,.5);
+    display: inline-block;
 }

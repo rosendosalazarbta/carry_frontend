@@ -74,7 +74,7 @@ class InputComponent extends Component {
                             {...this.props.propertys}>
                             {
                                 this.props.ruta != null &&
-                                <img src={this.props.ruta} width={"50"} height={"50"} className='img-radio' />
+                                <img src={this.props.ruta} width={"50"} height={"50"} className='img-radio' alt="Icon of option" />
                             }
                             {
                                 this.props.ruta == null && <i></i>
